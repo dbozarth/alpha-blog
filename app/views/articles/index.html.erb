@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12 alert alert-light">
+            <h1>Articles List</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-12 ">
+            <p></p>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <%= link_to 'New Article', new_article_path, class: 'btn btn-success btn-sm' %>
+          </div>
+        </div>
+        <div class="row">
+        <div class="col-xl-12">
+          <p></p>
+        </div>
+      </div>
+      </div>
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+          <% @articles.each do |article| %>
+            <tbody>
+              <tr>
+                <th scope="row"><%= article.title %></th>
+                <td><%= article.description %></td>
+                <td><%= link_to 'Edit', edit_article_path(article), class: 'btn btn-success btn-sm' %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Show', article_path(article), class: 'btn btn-secondary btn-sm' %></td>
+              </tr>
+            <% end %>
+          </tbody>
+      </table>
+    </div>
+  </div>
+</div>
