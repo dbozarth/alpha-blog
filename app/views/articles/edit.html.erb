@@ -4,33 +4,7 @@
       <div class="col-xl-12 alert alert-light">
         <h1>Article Editing Form</h1>
       </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-12">
-            <% if @article.errors.any? %>
-              <p>
-                <% @article.errors.full_messages.each do |msg| %>
-                  <p class="alert alert-danger"><%= msg %></p>
-                <% end %>
-              </p>
-            <% end %>
-
-            <%= form_for @article do |f| %>
-              <p>
-                <%= f.label :title, class: 'control-label' %> <br/>
-                <%= f.text_field :title, class: 'form-control' %>
-              </p>
-              <p>
-                <%= f.label :description, class: 'control-label' %> <br/>
-                <%= f.text_area :description, class: 'form-control', rows: '5' %>
-              </p>
-              <p>
-                <%= f.submit 'Update', class: 'btn btn-success' %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Cancel', article_path(@article), class: 'btn btn-primary' %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Back To List', articles_path, class: 'btn btn-info' %>
-              </p>
-
-            <% end %>
-          </div>
-        </div>
+      <%= render 'form' %>
       </div>
     </div>
   </div>

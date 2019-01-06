@@ -1,7 +1,8 @@
-<center>
-  <h1>Welcome Home</h1>
-  <%= link_to 'About', about_path %>
-  <p><img src="https://picsum.photos/800/200"></p>
-  <h3>Home of the few!</h3>
-  <p>Welcome to our home page. Here you will find very little.</p>
-</center>
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-5">Welcome To Alpha Blog</h1>
+    <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;Welcome to Alpha Blog. Here you will find many interesting articles.</p>
+    &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'About', about_path, class: 'btn btn-success' %>
+    &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Alpha Blog', articles_path, class: 'btn btn-success' %>
+  </div>
+</div>
