@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-xl-12">
+    <div class="col-md-12">
       <div class="container">
         <div class="row">
-          <div class="col-xl-12 alert alert-light">
+          <div class="col-md-8 offset-md-1 alert alert-light">
             <h1>Articles List</h1>
           </div>
         </div>
@@ -13,36 +13,27 @@
           </div>
         </div>
       </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-12">
-            <%= link_to 'New Article', new_article_path, class: 'btn btn-success btn-sm' %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Home', root_path, class: 'btn btn-success btn-sm' %>
+      <% @articles.each do |article| %>
+        <div class="row">        
+          <div class="card col-md-8 offset-md-1 bg-light col-md-offset">       
+            <div class="card-body">       
+              <div class="card-title">       
+                <%= link_to article.title, article_path(article), class:"card-title-custom" %>       
+              </div>       
+              <div class="card-body-custom">        
+                <%= truncate(article.description, length: 30) %>        
+              </div>        
+              <div class="card-actions">       
+                <%= link_to "Edit this article", edit_article_path(article), class: "btn btn-sm btn-success" %>        
+                <%= link_to "Delete this article", article_path(article), method:     :delete,
+                  data: { confirm: "Are you sure you want to delete the article?"},
+                  class: "btn btn-sm btn-dark" %>
+              </div>
+            </div>       
           </div>
-        </div>
-        <div class="row">
-        <div class="col-xl-12">
-          <p></p>
-        </div>
-      </div>
-      </div>
-      <table class="table table-bordered">
-        <thead class="thead-light">
-          <tr>
-            <th scope="col">Title</th>
-            <th scope="col">Description</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-          <% @articles.each do |article| %>
-            <tbody>
-              <tr>
-                <th scope="row"><%= article.title %></th>
-                <td><%= article.description %></td>
-                <td><%= link_to 'Edit', edit_article_path(article), class: 'btn btn-success btn-sm' %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Show', article_path(article), class: 'btn btn-secondary btn-sm' %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-secondary btn-sm' %></td>
-              </tr>
-            <% end %>
-          </tbody>
-      </table>
+        </div> 
+        <p>&nbsp;</p>      
+      <% end %>
     </div>
   </div>
 </div>
