@@ -1,5 +1,41 @@
-<h1>New User</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="col-xl-12 alert alert-light">
+        <h1>Sign Up For Alpha Blog</h1>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= render 'form', user: @user %>
+<div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <% if @user.errors.any? %>
+              <p>
+                <% @user.errors.full_messages.each do |msg| %>
+                  <p class="alert alert-danger"><%= msg %></p>
+                <% end %>
+              </p>
+            <% end %>
 
-<%= link_to 'Back', users_path %>
+            <%= form_for @user do |f| %>
+              <p>
+                <%= f.label :username, class: 'control-label' %> <br/>
+                <%= f.text_field :username, class: 'form-control', placeholder: "Enter a valid username", autofocus: true %>
+              </p>
+              <p>
+                <%= f.label :email, class: 'control-label' %> <br/>
+                <%= f.email_field :email, class: 'form-control', placeholder: "Enter a valid email... example@example.com" %>
+              </p>
+              <p>
+              <%= f.label :password, class: 'control-label' %> <br/>
+              <%= f.password_field :password, class: 'form-control', placeholder: "Enter password" %>
+            </p>
+              <p>
+                <%= f.submit 'Sign Up', class: 'btn btn-success' %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Cancel', articles_path, class: 'btn btn-info' %>
+              </p>
+
+            <% end %>
+          </div>
+        </div>
