@@ -1,19 +1,30 @@
-<div class="container">
+<div class="center container">
   <div class="row">
     <div class="col-md-12">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 offset-md-1 alert alert-light">
-            <h1>Articles List</h1>
+          <div class="col-md-12 alert alert-light">
+            <h1 align="center">Articles List</h1>
           </div>
         </div>
         <div class="row">
-          <div class="col-xl-12 ">
+          <div class="col-md-12 ">
             <p></p>
           </div>
         </div>
+        <%= will_paginate(@things, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer)%><p>&nbsp;</p>
+          <div class="row">
+            <div class="col-md-12 ">
+              <p></p>
+            </div>
+          </div>
       </div>
       <%= render 'article', obj: @articles %>
+      <div class="row">
+      <div class="col-md-12 ">
+        <p></p>
+      </div>
+    </div>
     </div>
   </div>
 </div>

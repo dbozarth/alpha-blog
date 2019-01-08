@@ -54,4 +54,14 @@
   padding-top: 10px;
 }
 
+.users_show_pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.pagination {
+  justify-content: center;
+}
+
 @import "bootstrap";
