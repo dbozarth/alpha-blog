@@ -1,4 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="center container">
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="col-xl-12 alert alert-light">
+        <h1>Welcome To <%= @user.username %>'s Page</h1>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="container">
+  <div class="center row">
+    <div class="col-md-12">
+      <%= gravatar_for @user, size: 160 %>
+    </div>
+  </div>
+  <div class="row">
+  <br/>
+  </div>
+  <div class="center row">
+    <div class="col-md-12">
+      <h4><%= @user.username %>'s Articles</h4>
+    </div>
+  </div>
+  <div class="row">
+  <br/>
+  </div>
+  <div class="row">
+    <div class="col-md-10 offset-md-2">
+      <%= render 'articles/article', obj: @user.articles %>
+    </div>
+  </div>
+</div>
