@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="col-xl-12 alert alert-light">
+        <h1 align="center">Category Listing</h1>
+      </div>
+    </div>
+  </div>
+</div>
+&nbsp;
+<%= will_paginate(@things, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer)%><p>&nbsp;</p>
+<% @categories.each do |category| %>
+<div class="col-md-2 offset-md-5">
+  <ul class="list-group">
+    <li class="list-group-item list-group-item-light" align="center">
+      <%= link_to "#{category.name}", category_path(category), class: "text-info" %>
+    </li>
+    &nbsp;
+  </ul>
+</div>
+
+<% end %>

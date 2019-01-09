@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="col-xl-12 alert alert-light">
+        <h1 align="center">Create New Category</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xl-8 offset-md-2">
+          <% if @category.errors.any? %>
+        <p>
+          <% @category.errors.full_messages.each do |msg| %>
+            <p class="alert alert-danger"><%= msg %></p>
+          <% end %>
+        </p>
+      <% end %>
+      <%= form_for(@category, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+        <p>
+          <%= f.label :name, class: 'control-label' %> <br/>
+          <%= f.text_field :name, class: 'form-control', placeholder: "Enter a valid category name", autofocus: true %>
+        </p>
+        <p>
+          <%= f.submit class: 'btn btn-success' %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Cancel', articles_path, class: 'btn btn-info' %>
+        </p>
+
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
