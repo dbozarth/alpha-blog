@@ -32,6 +32,9 @@
       <li class="nav-item">
         <%= link_to 'View Profile', user_path(current_user), class: "nav-link" %>
       </li>
+      <li class="nav-link" style="color: green">
+        <%= "(Admin)" if current_user.admin? %>
+      </li>
       <% else %>
       <li class="nav-item">
         <%= link_to 'Sign In', login_path, class: "nav-link" %>
