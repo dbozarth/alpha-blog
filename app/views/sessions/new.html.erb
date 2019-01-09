@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <h1 align="center">Login Page</h1>
+        <%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>
+          <p>
+            <%= f.label :email, class: 'control-label' %> <br/>
+            <%= f.email_field :email, class: 'form-control', placeholder: "Enter email", autofocus: true %>
+          </p>
+          <p>
+          <%= f.label :password, class: 'control-label' %> <br/>
+          <%= f.password_field :password, class: 'form-control', autocomplete: "off" %>
+        </p>
+          <p>
+            <%= f.submit "Log In", class: 'btn btn-success' %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Cancel', articles_path, class: 'btn btn-info' %>
+          </p>
+
+        <% end %>
+      </div>
+    </div>
+  </div>

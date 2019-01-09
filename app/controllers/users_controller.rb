@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :require_same_user, only: [:edit, :update]
 
   # GET /users
   # GET /users.json
@@ -10,7 +11,6 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
   end
 
   # GET /users/new
@@ -20,7 +20,6 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
   end
 
   # POST /users
@@ -38,7 +37,6 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    @user = User.find(params[:id])
       if @user.update(user_params)
         flash[:success] = "Successfully update your profile, #{@user.username}"
         redirect_to articles_path
@@ -66,6 +64,13 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:username, :email, :password)
+    end
+
+    def require_same_user
+      if current_user != @user
+        flash[:danger] = "Sorry! You can only edit your own account..."
+        redirect_to root_path
+      end
     end
   end
 

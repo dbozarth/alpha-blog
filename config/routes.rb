@@ -12,4 +12,8 @@ Rails.application.routes.draw do
 
   get 'show', to: 'users#show'
   resources :users, except: [:user]
+
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 end
