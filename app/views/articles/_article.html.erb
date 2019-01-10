@@ -15,6 +15,12 @@
             </small>
           </div>
         </div>
+        <div class="card-body-custom"> 
+        <% if article.categories.any? %>
+          <p>Categories</p>
+          <p><%= render article.categories %></p>
+        <% end %>
+        </div>
         <% if logged_in? && (current_user == article.user || current_user.admin?) %>        
           <div class="card-actions">       
             <%= link_to "Edit this article", edit_article_path(article), class: "btn btn-sm btn-dark" %>        
