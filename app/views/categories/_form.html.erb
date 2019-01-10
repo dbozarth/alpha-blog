@@ -1,0 +1,10 @@
+<%= form_for(@category, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+        <p>
+          <%= f.label :name, class: 'control-label' %> <br/>
+          <%= f.text_field :name, class: 'form-control', placeholder: "Enter a valid category name", autofocus: true %>
+        </p>
+        <p>
+          <%= f.submit class: 'btn btn-success' %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Cancel', category_path(@category), class: 'btn btn-info' %>
+        </p>
+
+      <% end %>
