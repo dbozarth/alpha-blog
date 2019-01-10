@@ -19,6 +19,12 @@
                 <%= f.text_area :description, class: 'form-control', rows: '5' %>
               </p>
               <p>
+                <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+                <% cb.label(class: "form-check-inline input-checkbox") {cb.check_box(class: "form-check-input") + cb.text} %>
+                <% end %>
+                 <br/>
+              </p>
+              <p>
                 <%= f.submit 'Submit', class: 'btn btn-success' %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Cancel', articles_path, class: 'btn btn-info' %>
               </p>
 

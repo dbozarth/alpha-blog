@@ -27,6 +27,16 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item"><%= @article.description %></li>
           </ul>
+        <div class="card-header bg-light">
+          <b>Categories</b>
+        </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <% if @article.categories.any? %>
+                <%= render @article.categories %>
+              <% end %>
+            </li>
+          </ul>
       </div>
     </div>
   </div>
@@ -39,7 +49,7 @@
   </div>
   <div class="row">
     <div class="col-xl-12">
-    <% if logged_in? && (current_user == article.user || current_user.admin?) %> 
+    <% if logged_in? && (current_user == @article.user || current_user.admin?) %> 
         <%= link_to 'Edit This Article', edit_article_path(@article), class: 'btn btn-success btn-sm' %>&nbsp;&nbsp;&nbsp;&nbsp;
         <%= link_to 'Delete Article', article_path(@article), method: :delete, data: { confirm: "Are yousure?" }, class: 'btn btn-danger btn-sm' %>
       <% end %>&nbsp;&nbsp;&nbsp;&nbsp;
