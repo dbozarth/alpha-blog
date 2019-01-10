@@ -1,0 +1,24 @@
+<div class="center container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="center container">
+        <div class="row">
+          <div class="col-md-12 card alert-light">
+            <h1>&nbsp;<%= "Category: " + @category.name %></h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 ">
+            <p></p>
+          </div>
+        </div>
+      </div>
+      <%= render 'articles/article', obj: @category_articles %>
+      <div class="row">
+        <div class="col-md-12 ">
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
